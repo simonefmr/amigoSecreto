@@ -47,9 +47,26 @@ function atualizarLista() {
         // Define o texto do <li> com o nome do amigo
         li.textContent = amigos[i];
 
+        // Adiciona um evento de clique para excluir o amigo da lista
+        li.addEventListener("click", function() {
+            excluirAmigo(i);
+        });
+
         // Adiciona o <li> à lista
         lista.appendChild(li);
     }
+}
+
+// Função para excluir um amigo da lista
+function excluirAmigo(index) {
+    // Remove o amigo do array usando o índice
+    let amigoRemovido = amigos.splice(index, 1);
+
+    // Exibe uma mensagem de sucesso (opcional)
+    console.log("Amigo removido: " + amigoRemovido);
+
+    // Atualiza a lista de amigos na interface
+    atualizarLista();
 }
 
 // Função para realizar o sorteio dos amigos
