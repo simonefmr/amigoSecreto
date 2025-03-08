@@ -7,7 +7,8 @@ Este é um jogo de **Amigo Secreto** simples e divertido, onde os usuários pode
 - **Adicionar amigos**: Insira os nomes dos amigos na lista para que possam ser sorteados.
 - **Blank**: O jogo não registra entradas em branco. É necessário que seja informado pelo menos um caractere.
 - **Evitar duplicidade**: O sistema não permite adicionar o mesmo nome mais de uma vez.
-- **Sortear amigos**: Realiza o sorteio aleatório dos amigos secretos.
+- **Exclusão**: Caso registre um nome incorretamente ou deseje excluir um amigo, basta clicar no botão ao lado do nome.
+- **Sortear amigos**: Realiza o sorteio aleatório dos amigos secretos. Não repete nomes e, quando zerada a lista, solicita que o jogo seja reiniciado.
 - **Interface interativa**: Atualiza a lista de amigos na interface assim que um novo nome é adicionado.
 
 ## Como jogar 🎲
@@ -20,9 +21,10 @@ Este é um jogo de **Amigo Secreto** simples e divertido, onde os usuários pode
 2. **Sorteio**:
    - Clique no botão "Sortear amigo".
    - O sistema escolherá aleatoriamente um nome da lista e exibirá o amigo sorteado na tela.
+   - Nenhum nome será repetido. Quando a lista é zerada, o jogo alerta para que seja reiniciado.
 
 3. **Evitar duplicidade**:
-   - O sistema verificará se o nome já foi adicionado à lista. Se já estiver na lista, você verá um alerta informando que o nome não pode ser repetido.
+   - O sistema verificará se o nome já foi adicionado à lista. Se já estiver na lista, você verá um alerta informando que o nome não pode ser repetido. 
 
 ## FAQ ❓
 
