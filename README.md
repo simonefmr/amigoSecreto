@@ -5,6 +5,7 @@ Este é um jogo de **Amigo Secreto** simples e divertido, onde os usuários pode
 ## Funcionalidades 🚀
 
 - **Adicionar amigos**: Insira os nomes dos amigos na lista para que possam ser sorteados.
+- **Blank**: O jogo não registra entradas em branco. É necessário que seja informado pelo menos um caractere.
 - **Evitar duplicidade**: O sistema não permite adicionar o mesmo nome mais de uma vez.
 - **Sortear amigos**: Realiza o sorteio aleatório dos amigos secretos.
 - **Interface interativa**: Atualiza a lista de amigos na interface assim que um novo nome é adicionado.
