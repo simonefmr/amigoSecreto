@@ -1,5 +1,7 @@
 // Array que armazena os nomes dos amigos
 let amigos = [];
+// Array que armazena os amigos sorteados
+let amigosSorteados = [];
 
 // Função para adicionar um amigo ao array
 function adicionarAmigo() {
@@ -44,13 +46,23 @@ function atualizarLista() {
         // Cria o elemento <li>
         let li = document.createElement("li");
 
-        // Define o texto do <li> com o nome do amigo
-        li.textContent = amigos[i];
+        // Cria o texto para o nome do amigo
+        let nomeAmigo = document.createElement("span");
+        nomeAmigo.textContent = amigos[i];
 
-        // Adiciona um evento de clique para excluir o amigo da lista
-        li.addEventListener("click", function() {
+        // Cria o botão de exclusão (X)
+        let excluir = document.createElement("button");
+        excluir.textContent = "X";
+        excluir.classList.add("excluir");
+
+        // Adiciona o evento de clique no botão de excluir
+        excluir.addEventListener("click", function() {
             excluirAmigo(i);
         });
+
+        // Adiciona o nome do amigo e o botão de exclusão ao <li>
+        li.appendChild(nomeAmigo);
+        li.appendChild(excluir);
 
         // Adiciona o <li> à lista
         lista.appendChild(li);
@@ -76,14 +88,25 @@ function sortearAmigo() {
         return;
     }
 
+    if (amigosSorteados.length === amigos.length) {
+        alert("Todos os amigos já foram sorteados. Reinicie o jogo para realizar novos sorteios.");
+        return;
+    }
+
     // Gera um índice aleatório entre 0 e o tamanho do array de amigos
-    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    let indiceAleatorio;
+    do {
+        indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    } while (amigosSorteados.includes(indiceAleatorio));
 
     // Obtém o nome sorteado com o índice aleatório
     let amigoSorteado = amigos[indiceAleatorio];
 
     // Exibe o nome sorteado no elemento de resultado
     document.getElementById("resultado").innerHTML = "O amigo sorteado é: " + amigoSorteado;
+
+    // Registra o amigo sorteado para garantir que não se repita
+    amigosSorteados.push(indiceAleatorio);
 
     // Chama a função para registrar o sorteio no log
     registrarSorteio(amigoSorteado);
@@ -92,4 +115,19 @@ function sortearAmigo() {
 // Função para registrar o sorteio no log
 function registrarSorteio(amigo) {
     console.log("Amigo sorteado: " + amigo);
+}
+
+// Função para reiniciar o jogo
+function reiniciarJogo() {
+    // Limpa os arrays
+    amigos = [];
+    amigosSorteados = [];
+
+    // Atualiza a lista na interface
+    atualizarLista();
+
+    // Limpa o resultado do sorteio
+    document.getElementById("resultado").innerHTML = "";
+
+    console.log("Jogo reiniciado.");
 }
